@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - Hedgehog1991/*
+      - master/*
 
 jobs:
   publish:
