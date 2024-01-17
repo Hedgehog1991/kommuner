@@ -10,11 +10,12 @@ import VectorSource from "ol/source/Vector";
 import {GeoJSON} from "ol/format";
 
 
+
 useGeographic();
 
 function App() {
  const view = useMemo(() => new View({
-     center: [10.5, 59,7], zoom: 11
+     center: [9.5,61,7], zoom: 6.5
  }), []);
  const map = useMemo(() => new Map({
      layers: [
