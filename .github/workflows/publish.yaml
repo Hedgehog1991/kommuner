@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - origin/*
+      - master/*
 
 jobs:
   publish:
