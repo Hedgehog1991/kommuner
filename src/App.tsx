@@ -22,7 +22,7 @@ function App() {
          new TileLayer({source: new OSM()}),
          new VectorLayer({
              source: new VectorSource({
-                 url: "/kommuner.json",
+                 url: "./kommuner.json",
                  format: new GeoJSON()
              })
          })
