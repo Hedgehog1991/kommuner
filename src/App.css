@@ -1,19 +1,31 @@
-* {
-  margin: 0;
-}
+
 #root {
-  height: 100dvh;
+  height: 97dvh;
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto 2fr;
+  margin: 1%;
+  border-radius: 20px;
+  background-color: #979ee7;
+  width: 100%;
+overflow: hidden;
+
 
 }
 .map {
-  background-color: red;
+  width: 100%;
+height: 99%;
+overflow: hidden;
+  border-radius: 2%;
+
 }
-nav, header {
-  padding: 0.25rem;
+nav,
+header {
+padding-bottom: 2px;
+
+
+
 }
-nav{
+nav {
   display: flex;
   gap: 1em;
 
