@@ -34,7 +34,7 @@ function App() {
 
           new VectorLayer({
             source: new VectorSource({
-              url: "./kommuner/africa.json",
+              url: "./africa.json",
               format: new GeoJSON(),
             }),
               style: function (){
