@@ -96,7 +96,7 @@ function App() {
         (e, [15,65], 5)}> Show all of Norway</a>
 
           <a href={"#"} onClick={(e) => handleZoom
-          (e, [8, 9], 4)}> Show africa </a>
+          (e, [8, 9], 4)} > Show africa </a>
 
       </nav>
       <div className={"map"} ref={mapRef}></div>
