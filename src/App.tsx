@@ -1,21 +1,22 @@
 import "./App.css";
 import "ol/ol.css";
 import { Map, View } from "ol";
-import React, { MutableRefObject, useEffect, useMemo, useRef } from "react";
+import React, { MutableRefObject, useEffect, useMemo, useRef, useState } from "react";
 import TileLayer from "ol/layer/Tile";
 import { OSM } from "ol/source";
 import { useGeographic } from "ol/proj";
-import VectorLayer from "ol/layer/Vector";
-import VectorSource from "ol/source/Vector";
-import { GeoJSON } from "ol/format";
-import {Style, Stroke} from 'ol/style';
-
-
-
+import {Layer} from "ol/layer";
 useGeographic();
 
-function App() {
 
+import KommuneCheckbox from "./components/musteringField/KommuneCheckbox.tsx";
+import AfricaCheckbox from "./components/musteringField/AfricaCheckbox.tsx";
+
+
+function App() {
+    const [layers, setLayers] = useState<Layer[]>([
+        new TileLayer({ source: new OSM() }),
+    ]);
   const view = useMemo(
     () =>
       new View({
@@ -31,27 +32,6 @@ function App() {
       new Map({
         layers: [
           new TileLayer({ source: new OSM() }),
-
-          new VectorLayer({
-            source: new VectorSource({
-              url: "./africa.json",
-              format: new GeoJSON(),
-            }),
-              style: function (){
-                return new Style({
-                    stroke: new Stroke({
-                        color: 'red',
-                        width: 2,
-                    })
-                })
-              }
-          }),
-          new VectorLayer({
-            source: new VectorSource({
-              url: "./kommuner.json",
-              format: new GeoJSON(),
-            }),
-          }),
         ],
         view: view,
       }),
@@ -81,24 +61,32 @@ function App() {
         })
     }
 
+    useEffect(() => {
+        map.setLayers(layers);
+    }, [layers]);
 
 
   return (
     <>
       <header>
-        <h3>- Trail map app</h3>
+        <h3>Map In Progress</h3>
       </header>
       <nav>
         <a href={"#"} onClick={handleZoomToUser}>
           Zoom to my location{" "}
         </a>
+
         <a href={"#"} onClick={(e) => handleZoom
-        (e, [15,65], 5)}> Show all of Norway</a>
+        (e, [15,65], 5)}> Show Norway</a>
 
           <a href={"#"} onClick={(e) => handleZoom
-          (e, [8, 9], 4)} > Show africa </a>
+          (e, [8, 9], 4)} > Show Africa </a>
+
+            <KommuneCheckbox map={map} setLayers={setLayers}/>
+            <AfricaCheckbox map={map} setLayers={setLayers}/>
 
       </nav>
+
       <div className={"map"} ref={mapRef}></div>
     </>
   );
