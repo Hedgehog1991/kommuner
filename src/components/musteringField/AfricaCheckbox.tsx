@@ -28,7 +28,7 @@ interface CountriesProps {
 
 const AfricaCheckbox = ({ map, setLayers }: {
     map: Map; setLayers: Dispatch<SetStateAction<Layer[]>> }) => (
-    <LayerCheckbox<AfricaFeature>
+    <LayerCheckbox
         map={map}
         setLayers={setLayers}
         useLayer={useLayer}

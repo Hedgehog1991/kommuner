@@ -25,7 +25,7 @@ interface KommuneProps {
 //Checkbox function sent to App
 const KommuneCheckbox = ({ map, setLayers }: {
     map: Map; setLayers: Dispatch<SetStateAction<Layer[]>> }) => (
-    <LayerCheckbox<KommuneFeature>
+    <LayerCheckbox
         map={map}
         setLayers={setLayers}
         useLayer={useLayer}
