@@ -6,12 +6,12 @@ import { GeoJSON } from "ol/format";
 import {Stroke, Style} from "ol/style";
 
 
-export function useLayer<FeatureType>(
+export function useLayer(
     show: boolean,
     map: Map,
     url: string
 ){
-    const [clickedFeature, setClickedFeature] = useState<Feature<FeatureType> | undefined>();
+    const [clickedFeature, setClickedFeature] = useState<Feature<any> | undefined>();
 
     const layer = useMemo(() =>{
         return new VectorLayer(
@@ -36,7 +36,7 @@ export function useLayer<FeatureType>(
             .getSource()?.getFeaturesAtCoordinate(e.coordinate);
 
         setClickedFeature(
-            clickedFeatures?.length ? (clickedFeatures[0] as Feature<FeatureType>)
+            clickedFeatures?.length ? (clickedFeatures[0] as Feature<any>)
                 : undefined,
         );
     }

@@ -4,7 +4,7 @@ import {Layer} from "ol/layer";
 import {KommuneNavn} from "../musteringField/KommuneCheckbox.tsx";
 
 
-export function LayerCheckbox<FeatureType>({
+export function LayerCheckbox({
            map,
            setLayers,
            useLayer,
@@ -13,7 +13,7 @@ export function LayerCheckbox<FeatureType>({
        }: {
     map: Map;
     setLayers: Dispatch<SetStateAction<Layer[]>>;
-    useLayer: (show: boolean, map: Map, url: string) => { layer: Layer; clickedFeature: Feature<FeatureType> | undefined };
+    useLayer: (show: boolean, map: Map, url: string) => { layer: Layer; clickedFeature: Feature<any> | undefined };
     url: string;
     label: string;
 }) {
